@@ -1,0 +1,5 @@
+[
+  {"id": "haze_balance", "hero": "haze", "baseHealth": null, "baseDamage": null, "moveSpeed": null, "armor": null, "referenceSurvivor": "Commando", "status": "unverified"},
+  {"id": "infernus_balance", "hero": "infernus", "baseHealth": null, "baseDamage": null, "moveSpeed": null, "armor": null, "referenceSurvivor": "Mercenary", "status": "unverified"},
+  {"id": "seven_balance", "hero": "seven", "baseHealth": null, "baseDamage": null, "moveSpeed": null, "armor": null, "referenceSurvivor": "Artificer", "status": "unverified"}
+]

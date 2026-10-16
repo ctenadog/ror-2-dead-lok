@@ -1,0 +1,14 @@
+[
+  {"id": "haze_weapon", "hero": "haze", "slot": "primary", "deadlockAbilityKey": null, "damageCoef": null, "cooldownSec": null, "procCoef": null, "status": "unverified"},
+  {"id": "haze_sleep_dagger", "hero": "haze", "slot": "secondary", "deadlockAbilityKey": null, "damageCoef": null, "cooldownSec": null, "procCoef": null, "status": "unverified"},
+  {"id": "haze_smoke_bomb", "hero": "haze", "slot": "utility", "deadlockAbilityKey": null, "damageCoef": null, "cooldownSec": null, "procCoef": null, "status": "unverified"},
+  {"id": "haze_bullet_dance", "hero": "haze", "slot": "special", "deadlockAbilityKey": null, "damageCoef": null, "cooldownSec": null, "procCoef": null, "status": "unverified"},
+  {"id": "infernus_weapon", "hero": "infernus", "slot": "primary", "deadlockAbilityKey": null, "damageCoef": null, "cooldownSec": null, "procCoef": null, "status": "unverified"},
+  {"id": "infernus_catalyst", "hero": "infernus", "slot": "secondary", "deadlockAbilityKey": null, "damageCoef": null, "cooldownSec": null, "procCoef": null, "status": "unverified"},
+  {"id": "infernus_flame_dash", "hero": "infernus", "slot": "utility", "deadlockAbilityKey": null, "damageCoef": null, "cooldownSec": null, "procCoef": null, "status": "unverified"},
+  {"id": "infernus_concussive_combustion", "hero": "infernus", "slot": "special", "deadlockAbilityKey": null, "damageCoef": null, "cooldownSec": null, "procCoef": null, "status": "unverified"},
+  {"id": "seven_weapon", "hero": "seven", "slot": "primary", "deadlockAbilityKey": null, "damageCoef": null, "cooldownSec": null, "procCoef": null, "status": "unverified"},
+  {"id": "seven_lightning_ball", "hero": "seven", "slot": "secondary", "deadlockAbilityKey": null, "damageCoef": null, "cooldownSec": null, "procCoef": null, "status": "unverified"},
+  {"id": "seven_static_charge", "hero": "seven", "slot": "utility", "deadlockAbilityKey": null, "damageCoef": null, "cooldownSec": null, "procCoef": null, "status": "unverified"},
+  {"id": "seven_storm_cloud", "hero": "seven", "slot": "special", "deadlockAbilityKey": null, "damageCoef": null, "cooldownSec": null, "procCoef": null, "status": "unverified"}
+]

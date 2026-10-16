@@ -1,0 +1,9 @@
+bin/
+obj/
+*.user
+cache/
+*.vpk
+*.vmdl_c
+*.vtex_c
+*.vsnd_c
+.env

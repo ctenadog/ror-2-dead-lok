@@ -1,0 +1,5 @@
+[
+  {"id": "haze_assets", "hero": "haze", "vpk": "{game:deadlock}/game/citadel/pak01_dir.vpk", "model": null, "animations": null, "textures": null, "sounds": null, "status": "unverified"},
+  {"id": "infernus_assets", "hero": "infernus", "vpk": "{game:deadlock}/game/citadel/pak01_dir.vpk", "model": null, "animations": null, "textures": null, "sounds": null, "status": "unverified"},
+  {"id": "seven_assets", "hero": "seven", "vpk": "{game:deadlock}/game/citadel/pak01_dir.vpk", "model": null, "animations": null, "textures": null, "sounds": null, "status": "unverified"}
+]

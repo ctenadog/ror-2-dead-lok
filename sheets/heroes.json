@@ -1,0 +1,5 @@
+[
+  {"id": "haze", "batch": 1, "displayName": "Haze", "deadlockHeroKey": null, "abilities": ["haze_weapon", "haze_sleep_dagger", "haze_smoke_bomb", "haze_bullet_dance"], "droppedAbility": "haze_fixation", "assets": "haze_assets", "balance": "haze_balance", "status": "unverified"},
+  {"id": "infernus", "batch": 1, "displayName": "Infernus", "deadlockHeroKey": null, "abilities": ["infernus_weapon", "infernus_catalyst", "infernus_flame_dash", "infernus_concussive_combustion"], "droppedAbility": "infernus_afterburn", "assets": "infernus_assets", "balance": "infernus_balance", "status": "unverified"},
+  {"id": "seven", "batch": 1, "displayName": "Seven", "deadlockHeroKey": null, "abilities": ["seven_weapon", "seven_lightning_ball", "seven_static_charge", "seven_storm_cloud"], "droppedAbility": "seven_power_surge", "assets": "seven_assets", "balance": "seven_balance", "status": "unverified"}
+]

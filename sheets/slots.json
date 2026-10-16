@@ -1,0 +1,6 @@
+[
+  {"id": "primary", "ror2SkillFamily": "primary", "source": "weapon"},
+  {"id": "secondary", "ror2SkillFamily": "secondary", "source": "ability"},
+  {"id": "utility", "ror2SkillFamily": "utility", "source": "ability"},
+  {"id": "special", "ror2SkillFamily": "special", "source": "ultimate"}
+]
