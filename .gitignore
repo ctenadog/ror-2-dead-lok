@@ -2,6 +2,7 @@ bin/
 obj/
 *.user
 cache/
+.tools/
 *.vpk
 *.vmdl_c
 *.vtex_c

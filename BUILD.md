@@ -1,25 +1,31 @@
-# Сборка и ручная установка
+# Сборка и установка
 
-> Статус: проект **собирается без ошибок** (проверено: .NET SDK 8.0.426, Linux). **В игре не проверен.** Героев Deadlock пока не добавляет — только находит папку Deadlock и пишет об этом в лог.
+> Статус: проект **собирается без ошибок** (проверено: .NET SDK 8.0.426). **В игре не проверен.** Героев Deadlock пока не добавляет — только находит папку Deadlock и пишет об этом в лог.
 
-## Сборка
+## Быстро: install.bat
 
-1. Установите .NET SDK 8: https://dotnet.microsoft.com/download/dotnet/8.0
-2. В корне репозитория:
+1. Скачайте репозиторий: зелёная кнопка **Code → Download ZIP**, распакуйте.
+2. Закройте Risk of Rain 2, если она открыта.
+3. Дважды щёлкните **install.bat**.
+
+Скрипт сам:
+- найдёт .NET SDK 8 или скачает его с dot.net в папку `.tools` рядом с проектом (без прав администратора);
+- соберёт `DeadlockSurvivors.dll`;
+- найдёт Risk of Rain 2 и Deadlock в библиотеках Steam (если не найдёт — спросит путь);
+- поставит BepInEx 5.4.21 x64 с GitHub, если его ещё нет;
+- положит плагин в `Risk of Rain 2\BepInEx\plugins\DeadlockSurvivors\`;
+- запишет путь к Deadlock в `BepInEx\config\ctenadog.deadlocksurvivors.cfg`.
+
+Файлы Deadlock никуда не копируются. Запущенную игру скрипт не закрывает — попросит закрыть самому.
+
+Проверка: запустите Risk of Rain 2, в `BepInEx\LogOutput.log` должна быть строка `Deadlock найден`.
+
+## Вручную
 
 ```
 dotnet build src/DeadlockSurvivors -c Release
 ```
 
-Результат: `src/DeadlockSurvivors/bin/Release/netstandard2.1/DeadlockSurvivors.dll`.
+Результат: `src/DeadlockSurvivors/bin/Release/netstandard2.1/DeadlockSurvivors.dll`. Положите его в `Risk of Rain 2/BepInEx/plugins/` (BepInEx 5 должен быть установлен) и укажите `DeadlockFolder` в `BepInEx/config/ctenadog.deadlocksurvivors.cfg` или переменную окружения `DEADLOCK_SURVIVORS_DEADLOCK_DIR`.
 
-Зависимости (только для компиляции, в DLL не входят): BepInEx.Core 5.4.21, RiskOfRain2.GameLibs 1.3.9-r.0, UnityEngine.Modules 2021.3.33 — из nuget.org и nuget.bepinex.dev (см. `NuGet.Config`).
-
-## Ручная установка (без Melty)
-
-1. Установите BepInEx 5 в папку Risk of Rain 2 (например, через r2modman или вручную с https://github.com/BepInEx/BepInEx/releases, версия 5.x, x64).
-2. Положите `DeadlockSurvivors.dll` в `Risk of Rain 2/BepInEx/plugins/`.
-3. Запустите игру один раз, закройте. Откройте `Risk of Rain 2/BepInEx/config/ctenadog.deadlocksurvivors.cfg` и укажите `DeadlockFolder` — папку установки Deadlock (та, где лежит папка `game`).
-4. Запустите игру. В `BepInEx/LogOutput.log` должно появиться `Deadlock найден: ...pak01_dir.vpk`.
-
-Вместо настройки можно задать переменную окружения `DEADLOCK_SURVIVORS_DEADLOCK_DIR`.
+Зависимости только для компиляции (в DLL не входят): BepInEx.Core 5.4.21, RiskOfRain2.GameLibs 1.3.9-r.0, UnityEngine.Modules 2021.3.33 — из nuget.org и nuget.bepinex.dev (см. `NuGet.Config`).
