@@ -1,10 +1,10 @@
-bin/
-obj/
-*.user
-cache/
 .tools/
+deadlock_extracted/
 *.vpk
+*.glb
+*.gltf
 *.vmdl_c
 *.vtex_c
 *.vsnd_c
-.env
+bin/
+obj/
