@@ -4,7 +4,7 @@
     <AssemblyName>DeadlockSurvivors</AssemblyName>
     <LangVersion>latest</LangVersion>
     <Nullable>disable</Nullable>
-    <Version>0.0.1</Version>
+    <Version>0.0.2</Version>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="BepInEx.Core" Version="5.4.21" PrivateAssets="all" />

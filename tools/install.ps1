@@ -34,6 +34,11 @@ Write-Host "dotnet: $dotnet"
 
 # 2. Сборка
 Step 'Собираю плагин'
+# Старая сборка удаляется, чтобы не скопировать устаревшую DLL
+foreach ($d in 'bin', 'obj') {
+    $p = Join-Path $Root "src\DeadlockSurvivors\$d"
+    if (Test-Path $p) { Remove-Item $p -Recurse -Force }
+}
 & $dotnet build (Join-Path $Root 'src\DeadlockSurvivors') -c Release --nologo
 if ($LASTEXITCODE -ne 0) { Fail 'сборка не удалась, смотрите сообщения выше.' }
 $Dll = Join-Path $Root 'src\DeadlockSurvivors\bin\Release\netstandard2.1\DeadlockSurvivors.dll'
@@ -98,12 +103,29 @@ if (Test-Path (Join-Path $Ror2 'BepInEx\core\BepInEx.dll')) {
     Write-Host 'BepInEx установлен.'
 }
 
-# 6. Плагин
+# 6. Плагин: сначала удаляем все старые версии, потом копируем новую
+Step 'Удаляю старые версии мода'
+$PluginsRoot = Join-Path $Ror2 'BepInEx\plugins'
+$PluginDir = Join-Path $PluginsRoot 'DeadlockSurvivors'
+$removed = 0
+if (Test-Path $PluginsRoot) {
+    # Любые копии DeadlockSurvivors*.dll/.pdb в plugins (в т.ч. положенные вручную или переименованные)
+    $old = Get-ChildItem $PluginsRoot -Recurse -File -Include 'DeadlockSurvivors*.dll', 'DeadlockSurvivors*.pdb', 'DeadlockSurvivors*.old' -ErrorAction SilentlyContinue
+    foreach ($f in $old) {
+        $ver = try { [Diagnostics.FileVersionInfo]::GetVersionInfo($f.FullName).FileVersion } catch { '?' }
+        Write-Host "  удаляю: $($f.FullName) (версия $ver)"
+        Remove-Item $f.FullName -Force
+        $removed++
+    }
+}
+if (Test-Path $PluginDir) { Remove-Item $PluginDir -Recurse -Force }
+if ($removed -eq 0) { Write-Host '  старых версий не найдено.' } else { Write-Host "  удалено файлов: $removed" }
+
 Step 'Копирую плагин'
-$PluginDir = Join-Path $Ror2 'BepInEx\plugins\DeadlockSurvivors'
 New-Item -ItemType Directory -Force -Path $PluginDir | Out-Null
 Copy-Item $Dll $PluginDir -Force
-Write-Host "Плагин: $PluginDir\DeadlockSurvivors.dll"
+$NewVer = [Diagnostics.FileVersionInfo]::GetVersionInfo((Join-Path $PluginDir 'DeadlockSurvivors.dll')).FileVersion
+Write-Host "Плагин: $PluginDir\DeadlockSurvivors.dll (версия $NewVer)"
 
 # 7. Путь к Deadlock в конфиг BepInEx
 if ($Deadlock) {
@@ -123,5 +145,6 @@ if ($Deadlock) {
 
 Step 'Готово'
 Write-Host 'Запустите Risk of Rain 2 через Steam.'
-Write-Host 'Проверка: в BepInEx\LogOutput.log должна быть строка "Deadlock найден".'
+Write-Host 'Проверка: в BepInEx\LogOutput.log ищите строки с меткой "[DS " (Ctrl+F),'
+Write-Host "  или откройте отдельный лог мода: $PluginDir\DeadlockSurvivors.log"
 Write-Host 'Героев Deadlock этот плагин пока НЕ добавляет - он только находит файлы игры.' -ForegroundColor Yellow
